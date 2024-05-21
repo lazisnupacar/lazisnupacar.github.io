@@ -66,3 +66,4 @@ document.getElementById('whatsapp-form').addEventListener('submit', function(eve
     
     window.open(whatsappURL, '_blank');
 });
+
