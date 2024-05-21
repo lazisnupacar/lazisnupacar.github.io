@@ -28,6 +28,9 @@ a {
 }
 
 /* Dasboard Section */
+#dasboard{
+  margin-top: 5rem;
+}
 #dasboard svg {
   position: absolute;
   bottom: -90px;
