@@ -38,6 +38,8 @@ a {
 
 .container {
   padding: 6rem;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .container-page {
@@ -134,7 +136,7 @@ header {
 }
 
 .navbar {
-  width: 100%;
+  width: 70%;
   height: 7px;
   max-width: 1200px;
   padding: 30px;
@@ -516,7 +518,8 @@ ul li a:hover {
 }
 
 .copyright {
-  margin-top: 3rem;
+  margin: 2rem auto;
+  font-size: 15px;
 }
 
 .to-top {
@@ -547,7 +550,11 @@ ul li a:hover {
   /* #dasboard svg {
     bottom: -30px;
   } */
+  .navbar{
+    width: 100%;
+  }
   .container {
+    width: auto;
     padding: 5rem;
   }
   .container-page {
@@ -568,7 +575,11 @@ ul li a:hover {
   /* #dasboard svg {
     margin-bottom: -22rem;
   } */
+  .navbar{
+    width: 100%;
+  }
   .container {
+    width: auto;
     padding: 3rem;
     left: 7rem;
   }
@@ -668,7 +679,11 @@ ul li a:hover {
   /* #dasboard svg {
     margin-bottom: -13rem;
   } */
+  .navbar{
+    width: 100%;
+  }
   .container {
+    width: auto;
     padding: 1rem;
   }
   .program-icon {
