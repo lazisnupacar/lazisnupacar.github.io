@@ -195,19 +195,22 @@
       <div class="container">
         <h2>POST UPDATE NEWS</h2>
         <div class="post-page">
-          <ul>
-            <img src="https://drive.google.com/file/d/1eyxtYv3vS4GLrx4StZBs7FwC-W8f3xZf/view?usp=drive_link" alt="postKhitanan" />
+          <div class="post-item">
+            <img src="https://drive.google.com/uc?export=view&id=1_yD1OfHhN_-aM7AkEp_MW_-1oT6zF2XZ" alt="Khitanan Massal" />
             <h3>Khitanan Massal</h3>
-            <p>khitanan massal adalah salah satu kegiatan yang dilaksanakan oleh lembaga amil zakat infaq dan Shodaqoh nahdlatul ulama desa pacar.</p>
-          </ul>
-          <ul>
-            <img src="https://drive.google.com/file/d/1LPlLK0PVu7b3dAuR2MsIGKZ5IqFAhAgq/view?usp=drive_link" alt="" />
+            <p>
+              Khitanan massal adalah salah satu kegiatan yang dilaksanakan oleh Lembaga Amil Zakat Infaq dan Shodaqoh Nahdlatul Ulama Desa Pacar.
+            </p>
+          </div>
+
+          <div class="post-item">
+            <img src="https://drive.google.com/uc?export=view&id=1_yD1OfHhN_-aM7AkEp_MW_-1oT6zF2XZ" alt="Buka Bersama" />
             <h3>Buka Bersama Pengurus Lazisnu</h3>
             <p>
-              kegiatan ini dilaksanakan di cafe didaerah tetangga, yaitu tepatnya di Kecamatan wiradesa. <br />
-              kegiatan ini dilaksanakan pada bulan ramadhan tahun 2022.
+              Kegiatan ini dilaksanakan di cafe di daerah tetangga, tepatnya di Kecamatan Wiradesa.<br />
+              Kegiatan ini dilaksanakan pada bulan Ramadhan tahun 2022.
             </p>
-          </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -218,20 +221,102 @@
       <div class="container">
         <h2>LAPORAN PEMASUKKAN DAN PENGELUARAN LAZISNU</h2>
         <div class="laporan-page">
-          <ul>
-            <h3>Laporan Pemasukkan Lazisnu</h3>
-            <iframe src="https://drive.google.com/file/d/1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi/preview"></iframe>
-            <a href="Laporan Bulan Februari.pdf" download>
-            <i class="fa-solid fa-download"> Download File</i>
+          <section class="laporan-item">
+            <h3>Laporan Bulan Lalu</h3>
+            <iframe id="iframeLaporan1" src="https://drive.google.com/file/d/1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi/preview" width="100%" height="400"></iframe>
+            <!-- Tombol download -->
+            <a id="downloadLaporan1" href="https://drive.google.com/uc?export=download&id=1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi" download>
+              <i class="fa-solid fa-download"></i> Download File
             </a>
-          </ul>
-          <ul>
-            <h3>Laporan Pengeluaran Lazisnu</h3>
-            <iframe src="https://drive.google.com/file/d/1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi/preview"></iframe>
-            <a href="Laporan Bulan Februari.pdf" download>
-            <i class="fa-solid fa-download"> Download File</i>
+
+            <!-- Dropdown untuk laporan Bulan Lalu -->
+            <div class="dropdown">
+              <label for="laporan1Select">Pilih Laporan:</label>
+              <!-- Dropdown Laporan Bulan Lalu -->
+              <select id="laporan1Select">
+                <option value="">-- Pilih Bulan --</option>
+                <option 
+                  value="https://drive.google.com/file/d/1nXYC_V54LdBcYMQZlh4TAdfNNVaIir2S/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1nXYC_V54LdBcYMQZlh4TAdfNNVaIir2S">
+                  Januari 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi">
+                  Februari 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1UyYh0v9OtJbTDdvVIP3Izn6H1j7fCVzu/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1UyYh0v9OtJbTDdvVIP3Izn6H1j7fCVzu">
+                  Maret 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1y0BiUXIyztc_DSAf2gZ1ghbPiTPrVc1O/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1y0BiUXIyztc_DSAf2gZ1ghbPiTPrVc1O">
+                  April 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1gRgfsj_tBPy1Zeuq9dPpIV-aJqkxj8rF/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1gRgfsj_tBPy1Zeuq9dPpIV-aJqkxj8rF">
+                  Mei 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1fk6cCEHGLyethZmA7lRFHNU9zffxu8Yc/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1fk6cCEHGLyethZmA7lRFHNU9zffxu8Yc">
+                  Juni 2024
+                </option>
+              </select>
+
+            </div>
+          </section>
+
+          <!-- Lapoan Bulan Ini -->
+          <section class="laporan-item">
+            <h3>Laporan Bulan Ini</h3>
+            <iframe id="iframeLaporan2" src="https://drive.google.com/file/d/1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi/preview" width="100%" height="400"></iframe>
+            <!-- Tombol download -->
+            <a id="downloadLaporan2" href="https://drive.google.com/uc?export=download&id=1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi" download>
+              <i class="fa-solid fa-download"></i> Download File
             </a>
-          </ul>
+
+            <!-- Dropdown untuk laporan Bulan Ini -->
+            <div class="dropdown">
+              <label for="laporan2Select">Pilih Laporan:</label>
+              <select id="laporan2Select">
+                <option value="">-- Pilih Bulan --</option>
+                <option 
+                  value="https://drive.google.com/file/d/1nXYC_V54LdBcYMQZlh4TAdfNNVaIir2S/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1nXYC_V54LdBcYMQZlh4TAdfNNVaIir2S">
+                  Januari 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1J5K5zgBSs1RZxAfl67-P9QZYw9QVuJCi">
+                  Februari 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1UyYh0v9OtJbTDdvVIP3Izn6H1j7fCVzu/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1UyYh0v9OtJbTDdvVIP3Izn6H1j7fCVzu">
+                  Maret 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1y0BiUXIyztc_DSAf2gZ1ghbPiTPrVc1O/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1y0BiUXIyztc_DSAf2gZ1ghbPiTPrVc1O">
+                  April 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1gRgfsj_tBPy1Zeuq9dPpIV-aJqkxj8rF/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1gRgfsj_tBPy1Zeuq9dPpIV-aJqkxj8rF">
+                  Mei 2024
+                </option>
+                <option 
+                  value="https://drive.google.com/file/d/1fk6cCEHGLyethZmA7lRFHNU9zffxu8Yc/preview" 
+                  data-download="https://drive.google.com/uc?export=download&id=1fk6cCEHGLyethZmA7lRFHNU9zffxu8Yc">
+                  Juni 2024
+                </option>
+              </select>
+            </div>
+          </section>
         </div>
       </div>
     </section>

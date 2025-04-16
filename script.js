@@ -67,3 +67,50 @@ document.getElementById('whatsapp-form').addEventListener('submit', function(eve
     window.open(whatsappURL, '_blank');
 });
 
+//Dropdown Laporan
+// Laporan1
+document.getElementById("laporan1Select").addEventListener("change", function () {
+    const iframe = document.getElementById("iframeLaporan1");
+    const url = this.value;
+    if (url) {
+      iframe.src = url;
+    }
+  });
+// Laporan2
+document.getElementById("laporan2Select").addEventListener("change", function () {
+    const iframe = document.getElementById("iframeLaporan2");
+    const url = this.value;
+    if (url) {
+      iframe.src = url;
+    }
+  });
+
+//Download File
+// Laporan1
+  document.getElementById("laporan1Select").addEventListener("change", function () {
+    const iframe = document.getElementById("iframeLaporan1");
+    const downloadLink = document.getElementById("downloadLaporan1");
+  
+    const selectedOption = this.options[this.selectedIndex];
+    const previewURL = selectedOption.value;
+    const downloadURL = selectedOption.getAttribute("data-download");
+  
+    if (previewURL && downloadURL) {
+      iframe.src = previewURL;
+      downloadLink.href = downloadURL;
+    }
+  });
+// Laporan2
+  document.getElementById("laporan2Select").addEventListener("change", function () {
+    const iframe = document.getElementById("iframeLaporan2");
+    const downloadLink = document.getElementById("downloadLaporan2");
+  
+    const selectedOption = this.options[this.selectedIndex];
+    const previewURL = selectedOption.value;
+    const downloadURL = selectedOption.getAttribute("data-download");
+  
+    if (previewURL && downloadURL) {
+      iframe.src = previewURL;
+      downloadLink.href = downloadURL;
+    }
+  });

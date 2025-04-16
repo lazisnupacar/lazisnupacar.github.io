@@ -390,6 +390,9 @@ header {
   width: 100%;
   margin-bottom: 10px;
 }
+.laporan-item {
+  margin: 10px;
+}
 
 /* kontak */
 #kontak {
@@ -566,6 +569,9 @@ ul li a:hover {
   .page h1 span {
     font-size: 40px;
   }
+  .laporan-item {
+    margin: 10px;
+  }
 }
 
 @media (max-width: 750px) {
@@ -652,6 +658,9 @@ ul li a:hover {
   .laporan-page ul {
     height: auto;
   }
+  .laporan-item {
+    margin: 10px;
+  }
   #kontak {
     padding-top: 4.5rem;
     padding: 3.5rem;
@@ -688,6 +697,9 @@ ul li a:hover {
   }
   .program-icon {
     width: 90%;
+  }
+  .laporan-item {
+    margin: 10px;
   }
 }
 /* @media(max-width: 550px){
