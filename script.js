@@ -114,3 +114,28 @@ document.getElementById("laporan2Select").addEventListener("change", function ()
       downloadLink.href = downloadURL;
     }
   });
+
+//Potret Hidden
+document.getElementById("toggleBtn").addEventListener("click", function() {
+  const gridItems = document.querySelectorAll(".instagram-grid .grid-item");
+  const allItemsVisible = Array.from(gridItems).every(item => item.style.display === "block");
+
+  // Toggle visibility of images
+  if (allItemsVisible) {
+    // Sembunyikan gambar tambahan
+    gridItems.forEach((item, index) => {
+      if (index >= 5) {
+        item.style.display = "none";
+      }
+    });
+    // Ubah teks tombol menjadi "Lihat Selengkapnya"
+    this.textContent = "Lihat Selengkapnya";
+  } else {
+    // Tampilkan semua gambar
+    gridItems.forEach(item => {
+      item.style.display = "block";
+    });
+    // Ubah teks tombol menjadi "Tampilkan Lebih Sedikit"
+    this.textContent = "Tampilkan Lebih Sedikit";
+  }
+});

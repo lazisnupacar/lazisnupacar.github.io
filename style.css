@@ -328,10 +328,10 @@ header {
 }
 
 /* POST */
-#berita {
+#potret {
   background: #bff6c3;
 }
-#berita .container h2 {
+#potret .container h2 {
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -357,6 +357,62 @@ header {
   border-radius: 10px;
   /* height: auto; */
 }
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+.grid-item iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Sembunyikan grid-item yang tidak ingin ditampilkan */
+.grid-item:nth-child(n+6) {
+  display: none;
+}
+
+#toggleBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff; /* Warna biru */
+  border: none;
+  border-radius: 50px; /* Membuat tombol melengkung */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#toggleBtn:hover {
+  background-color: #0056b3; /* Warna biru lebih gelap ketika hover */
+  transform: translateY(-3px); /* Efek tombol sedikit terangkat */
+}
+
+#toggleBtn:active {
+  background-color: #003f7f; /* Warna biru lebih gelap ketika tombol ditekan */
+  transform: translateY(0); /* Mengembalikan posisi tombol saat ditekan */
+}
+
+#toggleBtn:focus {
+  outline: none; /* Menghilangkan outline ketika tombol mendapat fokus */
+}
+
 
 /* Laporan */
 #laporan {
@@ -623,6 +679,10 @@ ul li a:hover {
   .about-social {
     padding: 5px;
     margin-top: -3rem;
+  }
+  /* Untuk desktop, tampilkan maksimal 15 item */
+  .grid-item:nth-child(n+16) {
+    display: none;
   }
   #program {
     margin-top: 0;
