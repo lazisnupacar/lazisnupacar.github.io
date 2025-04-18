@@ -141,7 +141,7 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATA%20WARGA%20LANDSCAPE.xlsx"; // Ganti dengan URL raw file Excel di GitHub
+const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAWARGA.xlsx"; // Ganti dengan URL raw file Excel di GitHub
     let workbook;
 
     // Load file Excel dari GitHub
