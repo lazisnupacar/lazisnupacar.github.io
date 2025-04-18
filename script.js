@@ -141,7 +141,7 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAKOINNU.xlsx";
+const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAKOIN.xlsx";
 let workbook;
 
 fetch(url)
@@ -161,6 +161,14 @@ function loadSheet(sheetName) {
     document.getElementById("table-wrapper").innerText = "Sheet tidak ditemukan: " + sheetName;
     return;
   }
+
+   // Hapus class "active" dari semua tombol
+   const buttons = document.querySelectorAll("#data-table button");
+   buttons.forEach(btn => btn.classList.remove("active"));
+ 
+   // Tambahkan class "active" ke tombol yang sesuai data-sheet-nya
+   const activeBtn = document.querySelector(`#data-table button[data-sheet="${sheetName}"]`);
+   if (activeBtn) activeBtn.classList.add("active");
 
   const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
   if (data.length === 0) {

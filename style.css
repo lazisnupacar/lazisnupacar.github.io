@@ -317,7 +317,13 @@ header {
 }
 
 #data-table button:hover {
-  background-color: #0c6b83;
+  background-color:rgb(9, 88, 108);
+}
+
+#data-table button.active {
+  background-color:rgb(238, 255, 50);
+  color: black;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.53);
 }
 
 /* Input pencarian */
