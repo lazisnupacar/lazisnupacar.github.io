@@ -141,27 +141,31 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/main/DATA WARGA LANDSCAPE.xlsx";
-let workbook;
+const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATA%20WARGA%20LANDSCAPE.xlsx"; // Ganti dengan URL raw file Excel di GitHub
+    let workbook;
 
-fetch(url)
-  .then(res => res.arrayBuffer())
-  .then(data => {
-    workbook = XLSX.read(data, { type: "array" });
-    loadSheet(workbook.SheetNames[0]); // tampilkan sheet pertama secara default
-  })
-  .catch(err => {
-    console.error(err);
-    document.getElementById("table-container").innerText = "Gagal memuat Excel.";
-  });
+    // Load file Excel dari GitHub
+    fetch(url)
+      .then(res => res.arrayBuffer())
+      .then(data => {
+        // Parse file Excel
+        workbook = XLSX.read(data, { type: "array" });
+        loadSheet(workbook.SheetNames[0]); // Tampilkan sheet pertama secara default
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("table-container").innerText = "Gagal memuat Excel.";
+      });
 
-function loadSheet(sheetName) {
-  const sheet = workbook.Sheets[sheetName];
-  if (!sheet) {
-    document.getElementById("table-container").innerText = "Sheet tidak ditemukan: " + sheetName;
-    return;
-  }
+    // Fungsi untuk memuat dan menampilkan sheet
+    function loadSheet(sheetName) {
+      const sheet = workbook.Sheets[sheetName];
+      if (!sheet) {
+        document.getElementById("table-container").innerText = "Sheet tidak ditemukan: " + sheetName;
+        return;
+      }
 
-  const html = XLSX.utils.sheet_to_html(sheet, { editable: false, header: "" });
-  document.getElementById("table-container").innerHTML = html;
-}
+      // Convert sheet ke HTML
+      const html = XLSX.utils.sheet_to_html(sheet, { editable: false, header: "" });
+      document.getElementById("table-container").innerHTML = html;
+    }
