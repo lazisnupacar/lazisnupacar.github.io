@@ -473,7 +473,7 @@ header {
 
 .grid-item iframe {
   width: 100%;
-  height: 250px;
+  height: 320px;
   border: none;
   border-radius: 12px;
   object-fit: cover;
