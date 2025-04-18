@@ -188,3 +188,4 @@ const filteredData = data.filter(row => row.length > 0);
       html += "</tbody></table>";
       
       document.getElementById("table-wrapper").innerHTML = html;
+    }
