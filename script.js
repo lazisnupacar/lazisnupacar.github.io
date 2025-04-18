@@ -141,7 +141,7 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAKOIN.xlsx";
+const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAKOINNU.xlsx";
 let workbook;
 
 fetch(url)
