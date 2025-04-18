@@ -141,7 +141,8 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-    const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAWARGA.xlsx";
+const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAWARGA.xlsx";
+const filteredData = data.filter(row => row.length > 0);
     let workbook;
 
     fetch(url)
@@ -185,22 +186,5 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
       }
 
       html += "</tbody></table>";
-
+      
       document.getElementById("table-wrapper").innerHTML = html;
-
-      // Inisialisasi DataTables
-      if ($.fn.DataTable.isDataTable("#dataTable")) {
-        $("#dataTable").DataTable().destroy();
-      }
-
-      $("#dataTable").DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-          'excelHtml5',
-          'pdfHtml5'
-        ],
-        pageLength: 10,
-        responsive: true
-      });
-    }
-    const filteredData = data.filter(row => row.length > 0);
