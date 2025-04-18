@@ -141,7 +141,7 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/namakamu/projectku/main/data.xlsx";
+const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/main/DATA WARGA LANDSCAPE.xlsx";
 let workbook;
 
 fetch(url)
