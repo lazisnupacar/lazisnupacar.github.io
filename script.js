@@ -178,9 +178,9 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 
       for (let i = 1; i < data.length; i++) {
         html += "<tr>";
-        data[i].forEach(cell => {
-          html += `<td>${cell ?? ""}</td>`;
-        });
+        for (let j = 0; j < data[0].length; j++) {
+          html += `<td>${data[i][j] ?? ""}</td>`;
+        }        
         html += "</tr>";
       }
 
@@ -203,3 +203,4 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
         responsive: true
       });
     }
+    const filteredData = data.filter(row => row.length > 0);
