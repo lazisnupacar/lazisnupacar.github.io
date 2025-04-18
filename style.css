@@ -285,65 +285,97 @@ header {
   transition: 0.3s ease;
 }
 
-
-h2 {
-  color: #333;
+/* Section utama di tengah layar */
+#data-table {
+  align-items: center;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1000px;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-button {
+/* Judul */
+#data-table h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Tombol-tombol */
+#data-table button {
   margin: 5px;
-  padding: 10px 15px;
-  cursor: pointer;
-  background-color: #007BFF;
+  padding: 8px 16px;
+  background-color: #0e7490;
   color: white;
   border: none;
-  border-radius: 6px;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+#data-table button:hover {
+  background-color: #0c6b83;
 }
 
-#table-container {
-  margin-top: 20px;
-}
-
-#table-wrapper {
-  max-height: 500px;
-  overflow-y: auto;
+/* Input pencarian */
+#searchInput {
+  margin: 20px auto;
+  display: block;
+  padding: 10px 14px;
+  width: 80%;
+  max-width: 400px;
   border: 1px solid #ccc;
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-table {
+/* Container tabel */
+#table-container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Wrapper tabel dengan scroll */
+#table-wrapper {
+  overflow-y: auto;
+  max-height: 500px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+/* Tabel */
+#dataTable {
   width: 100%;
   border-collapse: collapse;
 }
 
-th {
-  background-color: #007BFF;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-th, td {
-  padding: 8px;
+#dataTable th, #dataTable td {
+  padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
+  font-size: 14px;
 }
 
-tr:nth-child(even) {
-  background-color: #f9f9f9;
+#dataTable thead {
+  background-color: #f1f5f9;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-tr:hover {
-  background-color: #f1f1f1;
+#dataTable tr:nth-child(even) {
+  background-color: #f9fafb;
 }
+
+#dataTable tr:hover {
+  background-color: #e0f2fe;
+}
+
 
 /* Program Section */
 #program {

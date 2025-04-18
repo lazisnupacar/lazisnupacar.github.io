@@ -141,51 +141,59 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAWARGA.xlsx";
-const filteredData = data.filter(row => row.length > 0);
-    let workbook;
+const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAKOIN.xlsx";
+let workbook;
 
-    fetch(url)
-      .then(res => res.arrayBuffer())
-      .then(data => {
-        workbook = XLSX.read(data, { type: "array" });
-        loadSheet('REKAP'); // default
-      })
-      .catch(err => {
-        console.error(err);
-        document.getElementById("table-wrapper").innerText = "Gagal memuat file Excel.";
-      });
+fetch(url)
+  .then(res => res.arrayBuffer())
+  .then(data => {
+    workbook = XLSX.read(data, { type: "array" });
+    loadSheet('REKAP'); // sheet default
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("table-wrapper").innerText = "Gagal memuat file Excel.";
+  });
 
-    function loadSheet(sheetName) {
-      const sheet = workbook.Sheets[sheetName];
-      if (!sheet) {
-        document.getElementById("table-wrapper").innerText = "Sheet tidak ditemukan: " + sheetName;
-        return;
-      }
+function loadSheet(sheetName) {
+  const sheet = workbook.Sheets[sheetName];
+  if (!sheet) {
+    document.getElementById("table-wrapper").innerText = "Sheet tidak ditemukan: " + sheetName;
+    return;
+  }
 
-      // Convert ke array JSON
-      const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-      if (data.length === 0) {
-        document.getElementById("table-wrapper").innerText = "Data kosong di sheet " + sheetName;
-        return;
-      }
+  const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+  if (data.length === 0) {
+    document.getElementById("table-wrapper").innerText = "Data kosong di sheet " + sheetName;
+    return;
+  }
 
-      // Buat HTML Table manual dari array
-      let html = "<table id='dataTable'><thead><tr>";
-      data[0].forEach(header => {
-        html += `<th>${header}</th>`;
-      });
-      html += "</tr></thead><tbody>";
+  let html = "<div class='table-scroll'><table id='dataTable'><thead><tr>";
+  data[0].forEach(header => {
+    html += `<th>${header}</th>`;
+  });
+  html += "</tr></thead><tbody>";
 
-      for (let i = 1; i < data.length; i++) {
-        html += "<tr>";
-        for (let j = 0; j < data[0].length; j++) {
-          html += `<td>${data[i][j] ?? ""}</td>`;
-        }        
-        html += "</tr>";
-      }
-
-      html += "</tbody></table>";
-      
-      document.getElementById("table-wrapper").innerHTML = html;
+  for (let i = 1; i < data.length; i++) {
+    html += "<tr>";
+    for (let j = 0; j < data[0].length; j++) {
+      html += `<td>${data[i][j] ?? ""}</td>`;
     }
+    html += "</tr>";
+  }
+
+  html += "</tbody></table></div>";
+  document.getElementById("table-wrapper").innerHTML = html;
+}
+
+// Fungsi filter pencarian
+function filterTable() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const rows = document.querySelectorAll("#dataTable tbody tr");
+
+  rows.forEach(row => {
+    const cells = row.querySelectorAll("td");
+    const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
+    row.style.display = text.includes(input) ? "" : "none";
+  });
+}

@@ -240,7 +240,7 @@
 
     <!-- Data Tables -->
     <section id="data-table">
-    <h2>DATA PARA DERMAWAN KOIN NU</h2>
+    <h2>DATA PARA DERMAWAN KOIN NU DESA PACAR</h2>
     <button onclick="loadSheet('RT.01 RW.1')">RT.01 RW.01</button>
     <button onclick="loadSheet('RT.02 RW.1')">RT.02 RW.01</button>
     <button onclick="loadSheet('RT.03 RW.1')">RT.03 RW.01</button>
@@ -256,6 +256,7 @@
     <button onclick="loadSheet('RT.06 RW.2')">RT.06 RW.02</button>
 
     <div id="table-container">
+      <input type="text" id="searchInput" placeholder="Cari Nama Dermawan..." onkeyup="filterTable()" style="margin: 20px auto; display: block; padding: 8px; width: 80%; max-width: 400px;">
       <div id="table-wrapper">Memuat...</div>
     </div>
     </section>
