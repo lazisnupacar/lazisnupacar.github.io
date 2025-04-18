@@ -285,6 +285,32 @@ header {
   transition: 0.3s ease;
 }
 
+h2 {
+  color: #333;
+}
+.sheet-buttons {
+  margin-bottom: 15px;
+}
+.sheet-buttons button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.sheet-buttons button:hover {
+  background-color: #2980b9;
+}
+#excelTable {
+  margin-top: 20px;
+}
+table.dataTable {
+  width: 100% !important;
+}
+
 /* Program Section */
 #program {
   align-items: center;

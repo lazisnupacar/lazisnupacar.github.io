@@ -15,6 +15,14 @@
       <link rel="icon" href="logo.png" type="image/png">
 
     <title>Lazisnu | Pacar</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
   </head>
   <body>
     <!--Header Navbar Start -->
@@ -223,6 +231,14 @@
       </div>
     </section>
     <!-- Post Section End -->
+
+    <!-- Data Tables -->
+    <h2>Preview Excel dari Google Drive</h2>
+    <button onclick="loadSheet('Sheet1')">Tampilkan Sheet1</button>
+    <button onclick="loadSheet('Sheet2')">Tampilkan Sheet2</button>
+
+    <div id="table-container">Memuat...</div>
+    <!-- End Data Tables -->
 
     <!-- Documentation Section Start -->
     <section id="laporan">

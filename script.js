@@ -139,3 +139,29 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
     this.textContent = "Tampilkan Lebih Sedikit";
   }
 });
+
+// Data Tables
+const url = "https://raw.githubusercontent.com/namakamu/projectku/main/data.xlsx";
+let workbook;
+
+fetch(url)
+  .then(res => res.arrayBuffer())
+  .then(data => {
+    workbook = XLSX.read(data, { type: "array" });
+    loadSheet(workbook.SheetNames[0]); // tampilkan sheet pertama secara default
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("table-container").innerText = "Gagal memuat Excel.";
+  });
+
+function loadSheet(sheetName) {
+  const sheet = workbook.Sheets[sheetName];
+  if (!sheet) {
+    document.getElementById("table-container").innerText = "Sheet tidak ditemukan: " + sheetName;
+    return;
+  }
+
+  const html = XLSX.utils.sheet_to_html(sheet, { editable: false, header: "" });
+  document.getElementById("table-container").innerHTML = html;
+}
