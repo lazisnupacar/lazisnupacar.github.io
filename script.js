@@ -141,14 +141,14 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-    const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATADERMAWAN.xlsx";
+    const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAWARGA.xlsx";
     let workbook;
 
     fetch(url)
       .then(res => res.arrayBuffer())
       .then(data => {
         workbook = XLSX.read(data, { type: "array" });
-        loadSheet('RT.01 RW.1'); // default
+        loadSheet('REKAP'); // default
       })
       .catch(err => {
         console.error(err);
