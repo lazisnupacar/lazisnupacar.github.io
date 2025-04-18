@@ -16,7 +16,18 @@
 
     <title>Lazisnu | Pacar</title>
 
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> -->
+    <!-- CDN LIBRARY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
   </head>
   <body>
@@ -228,6 +239,7 @@
     <!-- Post Section End -->
 
     <!-- Data Tables -->
+    <section>
     <h2>DATA PARA DERMAWAN KOIN NU</h2>
     <button onclick="loadSheet('RT.01 RW.1')">RT.01 RW.01</button>
     <button onclick="loadSheet('RT.02 RW.1')">RT.02 RW.01</button>
@@ -243,7 +255,10 @@
     <button onclick="loadSheet('RT.05 RW.2')">RT.05 RW.02</button>
     <button onclick="loadSheet('RT.06 RW.2')">RT.06 RW.02</button>
 
-    <div id="table-container">Memuat...</div>
+    <div id="table-container">
+      <div id="table-wrapper">Memuat...</div>
+    </div>
+    </section>  
     <!-- End Data Tables -->
 
     <!-- Documentation Section Start -->

@@ -141,31 +141,65 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAWARGA.xlsx"; // Ganti dengan URL raw file Excel di GitHub
+    const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATADERMAWAN.xlsx";
     let workbook;
 
-    // Load file Excel dari GitHub
     fetch(url)
       .then(res => res.arrayBuffer())
       .then(data => {
-        // Parse file Excel
         workbook = XLSX.read(data, { type: "array" });
-        loadSheet(workbook.SheetNames[0]); // Tampilkan sheet pertama secara default
+        loadSheet('RT.01 RW.1'); // default
       })
       .catch(err => {
         console.error(err);
-        document.getElementById("table-container").innerText = "Gagal memuat Excel.";
+        document.getElementById("table-wrapper").innerText = "Gagal memuat file Excel.";
       });
 
-    // Fungsi untuk memuat dan menampilkan sheet
     function loadSheet(sheetName) {
       const sheet = workbook.Sheets[sheetName];
       if (!sheet) {
-        document.getElementById("table-container").innerText = "Sheet tidak ditemukan: " + sheetName;
+        document.getElementById("table-wrapper").innerText = "Sheet tidak ditemukan: " + sheetName;
         return;
       }
 
-      // Convert sheet ke HTML
-      const html = XLSX.utils.sheet_to_html(sheet, { editable: false, header: "" });
-      document.getElementById("table-container").innerHTML = html;
+      // Convert ke array JSON
+      const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+      if (data.length === 0) {
+        document.getElementById("table-wrapper").innerText = "Data kosong di sheet " + sheetName;
+        return;
+      }
+
+      // Buat HTML Table manual dari array
+      let html = "<table id='dataTable'><thead><tr>";
+      data[0].forEach(header => {
+        html += `<th>${header}</th>`;
+      });
+      html += "</tr></thead><tbody>";
+
+      for (let i = 1; i < data.length; i++) {
+        html += "<tr>";
+        data[i].forEach(cell => {
+          html += `<td>${cell ?? ""}</td>`;
+        });
+        html += "</tr>";
+      }
+
+      html += "</tbody></table>";
+
+      document.getElementById("table-wrapper").innerHTML = html;
+
+      // Inisialisasi DataTables
+      if ($.fn.DataTable.isDataTable("#dataTable")) {
+        $("#dataTable").DataTable().destroy();
+      }
+
+      $("#dataTable").DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+          'excelHtml5',
+          'pdfHtml5'
+        ],
+        pageLength: 10,
+        responsive: true
+      });
     }
