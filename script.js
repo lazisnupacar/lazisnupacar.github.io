@@ -205,3 +205,20 @@ function filterTable() {
     row.style.display = text.includes(input) ? "" : "none";
   });
 }
+
+// Fungsi Animasi Card
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = `fadeInUp 0.6s ease forwards`;
+        entry.target.style.animationDelay = `${index * 0.2}s`;
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+});

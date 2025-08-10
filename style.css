@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-family: 'Poppins', sans-serif;
+}
+
 /* Home Section */
 /* section {
   margin-top: 5rem;
@@ -391,17 +395,18 @@ header {
   margin-top: -2rem;
 }
 
-.container .index {
+.container h1 {
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  text-transform: uppercase;
   margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
 .program-page {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 15px;
   justify-content: center;
   align-items: center;
 }
@@ -424,6 +429,54 @@ header {
   margin-top: 5px;
   color: #443;
 }
+
+.card {
+  margin: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Efek hover */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Foto landscape */
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* rasio landscape */
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  display: block;
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Animasi fade-in */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 /* POST */
 #potret {
