@@ -537,7 +537,7 @@ header {
   display: none;
 } */
 
-#toggleBtn {
+.toggleBtn {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -550,17 +550,17 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#toggleBtn:hover {
-  background-color: #0056b3; /* Warna biru lebih gelap ketika hover */
+.toggleBtn:hover {
+  background-color: #feffffff; /* Warna biru lebih gelap ketika hover */
   transform: translateY(-3px); /* Efek tombol sedikit terangkat */
 }
 
-#toggleBtn:active {
-  background-color: #003f7f; /* Warna biru lebih gelap ketika tombol ditekan */
+.toggleBtn:active {
+  background-color: #fefefeff; /* Warna biru lebih gelap ketika tombol ditekan */
   transform: translateY(0); /* Mengembalikan posisi tombol saat ditekan */
 }
 
-#toggleBtn:focus {
+.toggleBtn:focus {
   outline: none; /* Menghilangkan outline ketika tombol mendapat fokus */
 }
 
