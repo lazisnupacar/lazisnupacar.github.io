@@ -533,9 +533,9 @@ header {
 }
 
 /* Sembunyikan grid-item yang tidak ingin ditampilkan */
-.grid-item:nth-child(n+6) {
+/* .grid-item:nth-child(n+6) {
   display: none;
-}
+} */
 
 #toggleBtn {
   padding: 10px 20px;
