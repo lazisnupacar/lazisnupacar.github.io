@@ -1,0 +1,72 @@
+[
+  {
+    "NO": "1",
+    "NAMA WILAYAH": "RT 01 RW 01",
+    "JUMLAH": "33"
+  },
+  {
+    "NO": "2",
+    "NAMA WILAYAH": "RT 02 RW 01",
+    "JUMLAH": "37"
+  },
+  {
+    "NO": "3",
+    "NAMA WILAYAH": "RT 03 RW 01",
+    "JUMLAH": "39"
+  },
+  {
+    "NO": "4",
+    "NAMA WILAYAH": "RT 04 RW 01",
+    "JUMLAH": "45"
+  },
+  {
+    "NO": "5",
+    "NAMA WILAYAH": "RT 05 RW 01",
+    "JUMLAH": "21"
+  },
+  {
+    "NO": "6",
+    "NAMA WILAYAH": "RT 06 RW 01",
+    "JUMLAH": "30"
+  },
+  {
+    "NO": "7",
+    "NAMA WILAYAH": "RT 07 RW 01",
+    "JUMLAH": "32"
+  },
+  {
+    "NO": "8",
+    "NAMA WILAYAH": "RT 01 RW 02",
+    "JUMLAH": "23"
+  },
+  {
+    "NO": "9",
+    "NAMA WILAYAH": "RT 02 RW 02",
+    "JUMLAH": "9"
+  },
+  {
+    "NO": "10",
+    "NAMA WILAYAH": "RT 03 RW 02",
+    "JUMLAH": "47"
+  },
+  {
+    "NO": "11",
+    "NAMA WILAYAH": "RT 04 RW 02",
+    "JUMLAH": "60"
+  },
+  {
+    "NO": "12",
+    "NAMA WILAYAH": "RT 05 RW 02",
+    "JUMLAH": "61"
+  },
+  {
+    "NO": "13",
+    "NAMA WILAYAH": "RT 06 RW 02",
+    "JUMLAH": "46"
+  },
+  {
+    "NO": "TOTAL",
+    "NAMA WILAYAH": "",
+    "JUMLAH": "483"
+  }
+]
