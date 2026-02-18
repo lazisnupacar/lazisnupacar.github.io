@@ -1,3 +1,136 @@
+let allData = [];
+let filteredData = [];
+
+let sortColumn = '';
+let sortDirection = 1;
+
+// load JSON
+async function loadJSON(file) {
+  document.getElementById('table-wrapper').innerHTML = "<div class='spinner'></div>";
+
+  const res = await fetch(file);
+
+  allData = await res.json();
+
+  filteredData = [...allData];
+
+  renderTable();
+}
+
+// render table TANPA pagination
+function renderTable() {
+  if (filteredData.length === 0) {
+    document.getElementById('table-wrapper').innerHTML = 'Tidak ada data';
+
+    return;
+  }
+
+  let html = '<table>';
+
+  html += '<thead><tr>';
+
+  Object.keys(filteredData[0]).forEach((col) => {
+    html += `<th onclick="sortTable('${col}')"
+             style="cursor:pointer">
+             ${col}
+             </th>`;
+  });
+
+  html += '</tr></thead><tbody>';
+
+  // tampilkan SEMUA data
+  filteredData.forEach((row) => {
+    html += '<tr>';
+
+    Object.keys(row).forEach((key) => {
+      let val = row[key];
+
+      if (key === 'JUMLAH') {
+        val = new Intl.NumberFormat('id-ID').format(val);
+      }
+
+      html += `<td>${val}</td>`;
+    });
+
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+
+  document.getElementById('table-wrapper').innerHTML = html;
+}
+
+// search
+document.getElementById('searchInput').addEventListener('keyup', function () {
+  const key = this.value.toLowerCase();
+
+  filteredData = allData.filter((row) => Object.values(row).join(' ').toLowerCase().includes(key));
+
+  renderTable();
+});
+
+// sort
+function sortTable(col) {
+  if (sortColumn === col) {
+    sortDirection *= -1;
+  } else {
+    sortColumn = col;
+
+    sortDirection = 1;
+  }
+
+  filteredData.sort((a, b) => {
+    if (a[col] > b[col]) return sortDirection;
+
+    if (a[col] < b[col]) return -sortDirection;
+
+    return 0;
+  });
+
+  renderTable();
+}
+
+// export excel
+function exportExcel() {
+  const ws = XLSX.utils.json_to_sheet(filteredData);
+
+  const wb = XLSX.utils.book_new();
+
+  XLSX.utils.book_append_sheet(wb, ws, 'Data');
+
+  XLSX.writeFile(wb, 'data.xlsx');
+}
+
+// export pdf
+function exportPDF() {
+  const { jsPDF } = window.jspdf;
+
+  const doc = new jsPDF();
+
+  doc.autoTable({
+    head: [Object.keys(filteredData[0])],
+
+    body: filteredData.map(Object.values),
+  });
+
+  doc.save('data.pdf');
+}
+
+// tombol load file
+document.querySelectorAll('#buttons button').forEach((btn) => {
+  btn.onclick = function () {
+    document.querySelectorAll('#buttons button').forEach((b) => b.classList.remove('active'));
+
+    this.classList.add('active');
+
+    loadJSON(this.dataset.file);
+  };
+});
+
+// load default
+loadJSON('./data/REKAP.json');
+
+
 const toggleBtn = document.querySelector('.toggle-btn');
 const toggleBtnIcon = document.querySelector('.toggle-btn i');
 const dropDownMenu = document.querySelector('.dropdown-menu');
@@ -141,70 +274,71 @@ document.getElementById("toggleBtn").addEventListener("click", function() {
 });
 
 // Data Tables
-const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAKOIN.xlsx";
-let workbook;
+// const url = "https://raw.githubusercontent.com/lazisnupacar/lazisnupacar.github.io/master/DATAKOIN.xlsx";
+// let workbook;
 
-fetch(url)
-  .then(res => res.arrayBuffer())
-  .then(data => {
-    workbook = XLSX.read(data, { type: "array" });
-    loadSheet('REKAP'); // sheet default
-  })
-  .catch(err => {
-    console.error(err);
-    document.getElementById("table-wrapper").innerText = "Gagal memuat file Excel.";
-  });
+// fetch(url)
+//   .then(res => res.arrayBuffer())
+//   .then(data => {
+//     workbook = XLSX.read(data, { type: "array" });
+//     loadSheet('REKAP'); // sheet default
+//   })
+//   .catch(err => {
+//     console.error(err);
+//     document.getElementById("table-wrapper").innerText = "Gagal memuat file Excel.";
+//   });
 
-function loadSheet(sheetName) {
-  const sheet = workbook.Sheets[sheetName];
-  if (!sheet) {
-    document.getElementById("table-wrapper").innerText = "Sheet tidak ditemukan: " + sheetName;
-    return;
-  }
+// function loadSheet(sheetName) {
+//   const sheet = workbook.Sheets[sheetName];
+//   if (!sheet) {
+//     document.getElementById("table-wrapper").innerText = "Sheet tidak ditemukan: " + sheetName;
+//     return;
+//   }
 
-   // Hapus class "active" dari semua tombol
-   const buttons = document.querySelectorAll("#data-table button");
-   buttons.forEach(btn => btn.classList.remove("active"));
+//    // Hapus class "active" dari semua tombol
+//    const buttons = document.querySelectorAll("#data-table button");
+//    buttons.forEach(btn => btn.classList.remove("active"));
  
-   // Tambahkan class "active" ke tombol yang sesuai data-sheet-nya
-   const activeBtn = document.querySelector(`#data-table button[data-sheet="${sheetName}"]`);
-   if (activeBtn) activeBtn.classList.add("active");
+//    // Tambahkan class "active" ke tombol yang sesuai data-sheet-nya
+//    const activeBtn = document.querySelector(`#data-table button[data-sheet="${sheetName}"]`);
+//    if (activeBtn) activeBtn.classList.add("active");
 
-  const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-  if (data.length === 0) {
-    document.getElementById("table-wrapper").innerText = "Data kosong di sheet " + sheetName;
-    return;
-  }
+//   const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+//   if (data.length === 0) {
+//     document.getElementById("table-wrapper").innerText = "Data kosong di sheet " + sheetName;
+//     return;
+//   }
 
-  let html = "<div class='table-scroll'><table id='dataTable'><thead><tr>";
-  data[0].forEach(header => {
-    html += `<th>${header}</th>`;
-  });
-  html += "</tr></thead><tbody>";
+//   let html = "<div class='table-scroll'><table id='dataTable'><thead><tr>";
+//   data[0].forEach(header => {
+//     html += `<th>${header}</th>`;
+//   });
+//   html += "</tr></thead><tbody>";
 
-  for (let i = 1; i < data.length; i++) {
-    html += "<tr>";
-    for (let j = 0; j < data[0].length; j++) {
-      html += `<td>${data[i][j] ?? ""}</td>`;
-    }
-    html += "</tr>";
-  }
+//   for (let i = 1; i < data.length; i++) {
+//     html += "<tr>";
+//     for (let j = 0; j < data[0].length; j++) {
+//       html += `<td>${data[i][j] ?? ""}</td>`;
+//     }
+//     html += "</tr>";
+//   }
 
-  html += "</tbody></table></div>";
-  document.getElementById("table-wrapper").innerHTML = html;
-}
+//   html += "</tbody></table></div>";
+//   document.getElementById("table-wrapper").innerHTML = html;
+// }
 
-// Fungsi filter pencarian
-function filterTable() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  const rows = document.querySelectorAll("#dataTable tbody tr");
+// // Fungsi filter pencarian
+// function filterTable() {
+//   const input = document.getElementById("searchInput").value.toLowerCase();
+//   const rows = document.querySelectorAll("#dataTable tbody tr");
 
-  rows.forEach(row => {
-    const cells = row.querySelectorAll("td");
-    const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
-    row.style.display = text.includes(input) ? "" : "none";
-  });
-}
+//   rows.forEach(row => {
+//     const cells = row.querySelectorAll("td");
+//     const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(" ");
+//     row.style.display = text.includes(input) ? "" : "none";
+//   });
+// }
+
 
 // Fungsi Animasi Card
 document.addEventListener("DOMContentLoaded", () => {
