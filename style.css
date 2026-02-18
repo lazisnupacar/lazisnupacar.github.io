@@ -320,7 +320,7 @@ header {
   transition: background-color 0.2s ease;
 }
 
-#data-table button:hover {
+/* #data-table button:hover {
   background-color:rgb(9, 88, 108);
 }
 
@@ -328,7 +328,7 @@ header {
   background-color:rgb(238, 255, 50);
   color: black;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.53);
-}
+} */
 
 /* Input pencarian */
 #searchInput {
@@ -348,15 +348,124 @@ header {
 }
 
 /* Wrapper tabel dengan scroll */
+/* WRAPPER */
 #table-wrapper {
-  overflow-y: auto;
-  max-height: 500px;
-  margin: 0 auto;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: white;
-  padding: 10px;
+  margin-top: 20px;
 }
+
+/* SCROLL CONTAINER */
+#table-wrapper div {
+  max-height: 400px;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* TABLE */
+#table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
+}
+
+/* HEADER */
+#table-wrapper thead th {
+  position: sticky;
+  top: 70px;
+  background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+  color: white;
+  padding: 14px;
+  font-size: 14px;
+  text-align: left;
+  letter-spacing: 0.5px;
+  z-index: 10;
+}
+
+/* BODY CELLS */
+#table-wrapper tbody td {
+  padding: 12px 14px;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+/* ZEBRA STRIPE */
+#table-wrapper tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+/* HOVER EFFECT */
+#table-wrapper tbody tr:hover {
+  background: #e7f1ff;
+  transition: 0.2s;
+}
+
+/* FIRST COLUMN (NO) */
+#table-wrapper td:first-child {
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* JUMLAH COLUMN */
+#table-wrapper td:last-child {
+  font-weight: bold;
+  color: #198754;
+}
+
+/* SCROLLBAR */
+#table-wrapper div::-webkit-scrollbar {
+  width: 8px;
+}
+
+#table-wrapper div::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#table-wrapper div::-webkit-scrollbar-thumb {
+  background: #0d6efd;
+  border-radius: 10px;
+}
+
+#table-wrapper div::-webkit-scrollbar-thumb:hover {
+  background: #0b5ed7;
+}
+
+/* SEARCH BOX */
+#searchInput {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.2s;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13,110,253,0.3);
+}
+
+/* BUTTON STYLE */
+#data-table button {
+  margin: 4px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #0c2136;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#data-table button:hover {
+  background: #0d6efd;
+  color: white;
+}
+
+#data-table button.active {
+  background: #0d6efd;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
 
 /* Tabel */
 #dataTable {

@@ -117,18 +117,33 @@ function exportPDF() {
 }
 
 // tombol load file
-document.querySelectorAll('#buttons button').forEach((btn) => {
-  btn.onclick = function () {
-    document.querySelectorAll('#buttons button').forEach((b) => b.classList.remove('active'));
+document.addEventListener("DOMContentLoaded", function () {
 
-    this.classList.add('active');
+  const buttons = document.querySelectorAll('#data-table button');
 
-    loadJSON(this.dataset.file);
-  };
+  buttons.forEach((btn) => {
+
+    btn.addEventListener("click", function () {
+
+      buttons.forEach((b) => b.classList.remove('active'));
+
+      this.classList.add('active');
+
+      const file = this.dataset.file;
+
+      console.log("Load:", file);
+
+      loadJSON(file);
+
+    });
+
+  });
+
+  // default load
+  loadJSON('./data/REKAP.json');
+
 });
 
-// load default
-loadJSON('./data/REKAP.json');
 
 
 const toggleBtn = document.querySelector('.toggle-btn');
